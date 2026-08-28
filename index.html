@@ -112,10 +112,6 @@
             background: #1d4ed8;
         }
 
-        .generate-btn:active {
-            transform: scale(0.98);
-        }
-
         /* BRAND TABS */
         .brand-tabs {
             display: flex;
@@ -174,7 +170,6 @@
             font-size: 14px;
             background: white;
             cursor: pointer;
-            transition: all 0.2s;
         }
 
         /* STOCK HEADER */
@@ -190,7 +185,6 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 24px;
         }
 
         .stock-info h2 {
@@ -229,35 +223,8 @@
             color: #ef4444;
         }
 
-        .stock-performance {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin-top: 24px;
-        }
-
-        .performance-metric {
-            padding: 16px;
-            background: #f9fafb;
-            border-radius: 6px;
-        }
-
-        .performance-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #6b7280;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .performance-value {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a1a1a;
-        }
-
-        /* KEY METRICS */
-        .metrics-section {
+        /* PERFORMANCE SECTION */
+        .performance-section {
             background: white;
             border-radius: 8px;
             padding: 32px;
@@ -269,74 +236,77 @@
             font-size: 16px;
             font-weight: 700;
             color: #1a1a1a;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
-        .metrics-grid {
+        .performance-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            gap: 24px;
         }
 
-        .metric-item {
-            padding: 16px;
+        .performance-metric {
+            padding: 20px;
             background: #f9fafb;
             border-radius: 6px;
+            border: 1px solid #f3f4f6;
         }
 
-        .metric-item-label {
+        .performance-label {
             font-size: 12px;
             font-weight: 600;
             color: #6b7280;
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
-        .metric-item-value {
-            font-size: 18px;
+        .performance-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .performance-value {
+            font-size: 24px;
             font-weight: 700;
             color: #1a1a1a;
         }
 
-        /* NEWS SECTION */
-        .news-section {
-            background: white;
+        .performance-value.positive {
+            color: #22c55e;
+        }
+
+        .performance-value.negative {
+            color: #ef4444;
+        }
+
+        .trend-sparkline {
+            height: 40px;
+            min-width: 100px;
+        }
+
+        /* NARRATIVE SECTION */
+        .narrative-section {
+            background: #f0f7ff;
+            border-left: 4px solid #2563eb;
             border-radius: 8px;
-            padding: 32px;
+            padding: 24px;
             margin-bottom: 32px;
-            border: 1px solid #e5e7eb;
         }
 
-        .news-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .news-item {
-            padding: 16px;
-            background: #f9fafb;
-            border-radius: 6px;
-            border-left: 3px solid #2563eb;
-        }
-
-        .news-date {
-            font-size: 12px;
-            color: #6b7280;
-            margin-bottom: 4px;
-        }
-
-        .news-title {
+        .narrative-title {
             font-size: 14px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 4px;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
-        .news-summary {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.5;
+        .narrative-text {
+            font-size: 15px;
+            color: #1a1a1a;
+            line-height: 1.6;
         }
 
         /* ANALYSIS SECTION */
@@ -385,26 +355,108 @@
             font-weight: 700;
         }
 
-        .narrative-section {
-            background: #f0f7ff;
-            border-left: 3px solid #2563eb;
-            padding: 20px;
-            border-radius: 6px;
-            margin-top: 24px;
+        /* NEWS SECTION */
+        .news-section {
+            background: white;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 32px;
+            border: 1px solid #e5e7eb;
         }
 
-        .narrative-title {
-            font-size: 13px;
-            font-weight: 700;
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .news-item {
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 6px;
+            border-left: 3px solid #2563eb;
+            transition: all 0.2s;
+        }
+
+        .news-item:hover {
+            background: #f0f7ff;
+            border-left-color: #1d4ed8;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .news-title {
+            font-size: 14px;
+            font-weight: 600;
             color: #2563eb;
+            margin-bottom: 4px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .news-title:hover {
+            text-decoration: underline;
+        }
+
+        .news-summary {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        .news-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 8px;
+            background: #e0e7ff;
+            color: #2563eb;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .news-link:hover {
+            background: #c7d2fe;
+        }
+
+        /* KEY METRICS */
+        .metrics-section {
+            background: white;
+            border-radius: 8px;
+            padding: 32px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-item {
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 6px;
+        }
+
+        .metric-item-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #6b7280;
             text-transform: uppercase;
             margin-bottom: 8px;
         }
 
-        .narrative-text {
-            font-size: 14px;
+        .metric-item-value {
+            font-size: 18px;
+            font-weight: 700;
             color: #1a1a1a;
-            line-height: 1.6;
         }
 
         .loading {
@@ -452,7 +504,6 @@
                 border-right: none;
                 border-bottom: 1px solid #e5e7eb;
                 padding: 20px;
-                display: none;
             }
 
             .main-content {
@@ -501,7 +552,7 @@
                 <div class="header-top">
                     <div>
                         <div class="header-title">Gaming Market Pulse</div>
-                        <div class="header-subtitle" id="headerDate">W/c 28/08/2026</div>
+                        <div class="header-subtitle">W/c 28/08/2026</div>
                     </div>
                     <button class="generate-btn" onclick="generateDigest()">Generate Report</button>
                 </div>
@@ -537,26 +588,32 @@
                 <!-- STOCK HEADER -->
                 <div class="stock-header" id="stockHeader"></div>
 
-                <!-- KEY METRICS -->
-                <div class="metrics-section">
-                    <div class="section-title">Key Metrics</div>
-                    <div class="metrics-grid" id="metricsGrid"></div>
+                <!-- PERFORMANCE METRICS WITH TRENDS -->
+                <div class="performance-section">
+                    <div class="section-title">Performance Trends</div>
+                    <div class="performance-grid" id="performanceGrid"></div>
                 </div>
 
-                <!-- NEWS SECTION -->
-                <div class="news-section">
-                    <div class="section-title">Recent News</div>
-                    <div class="news-list" id="newsList"></div>
-                </div>
+                <!-- NARRATIVE -->
+                <div class="narrative-section" id="narrativeSection"></div>
 
-                <!-- ANALYST VIEW -->
+                <!-- ANALYSIS -->
                 <div class="analysis-section">
                     <div class="section-title">Market Analysis</div>
                     <div class="analysis-grid" id="analysisGrid"></div>
                 </div>
 
-                <!-- NARRATIVE -->
-                <div class="narrative-section" id="narrativeSection"></div>
+                <!-- NEWS -->
+                <div class="news-section">
+                    <div class="section-title">Recent News</div>
+                    <div class="news-list" id="newsList"></div>
+                </div>
+
+                <!-- KEY METRICS -->
+                <div class="metrics-section">
+                    <div class="section-title">Key Metrics</div>
+                    <div class="metrics-grid" id="metricsGrid"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -580,21 +637,22 @@
                     {
                         date: "28 Aug 2026",
                         title: "NFL Sports Betting Partnerships Announced",
-                        summary: "DraftKings partners with NFL for official sports betting integration across multiple markets."
+                        summary: "DraftKings partners with NFL for official sports betting integration across multiple markets.",
+                        url: "https://finance.yahoo.com/quote/DKNG/news"
                     },
                     {
                         date: "26 Aug 2026",
                         title: "Governance Concerns Raised",
-                        summary: "$30M marketing contract with departing cofounder raises internal control questions."
+                        summary: "$30M marketing contract with departing cofounder raises internal control questions.",
+                        url: "https://finance.yahoo.com/quote/DKNG/news"
                     },
                     {
                         date: "20 Aug 2026",
                         title: "Q2 2026 Results: Revenue $1.44B",
-                        summary: "Strong revenue but net loss of $67.61M; Predictions product adoption accelerating."
+                        summary: "Strong revenue but net loss of $67.61M; Predictions product adoption accelerating.",
+                        url: "https://finance.yahoo.com/quote/DKNG/news"
                     }
                 ],
-                analyst_rating: "BUY",
-                price_target: "$34.98",
                 tailwinds: ["NFL partnerships expanding reach", "Predictions product showing strong adoption", "Customer acquisition costs declining"],
                 headwinds: ["Governance concerns with cofounder contract", "Competitive promotional intensity", "Regulatory pressures in key markets"],
                 narrative: "DraftKings faced headwinds from governance concerns but was buoyed by NFL partnership announcements today. The stock remains under pressure from competitive spending and regulatory concerns, though the Predictions product is gaining traction as a differentiator."
@@ -616,21 +674,22 @@
                     {
                         date: "28 Aug 2026",
                         title: "CEO Peter Jackson Steps Down",
-                        summary: "Leadership transition deepens investor concerns following Q2 earnings miss."
+                        summary: "Leadership transition deepens investor concerns following Q2 earnings miss.",
+                        url: "https://finance.yahoo.com/quote/FLUT/news"
                     },
                     {
                         date: "26 Aug 2026",
                         title: "FanDuel Sportsbook Growth Slows",
-                        summary: "US revenue down 6%; sportsbook volumes fell 15% as competitive pressure mounts."
+                        summary: "US revenue down 6%; sportsbook volumes fell 15% as competitive pressure mounts.",
+                        url: "https://finance.yahoo.com/quote/FLUT/news"
                     },
                     {
                         date: "22 Aug 2026",
                         title: "Q2 Loss of $272M Reported",
-                        summary: "Increased promotional spending compresses margins; guidance lowered for full year."
+                        summary: "Increased promotional spending compresses margins; guidance lowered for full year.",
+                        url: "https://finance.yahoo.com/quote/FLUT/news"
                     }
                 ],
-                analyst_rating: "HOLD",
-                price_target: "$110.50",
                 tailwinds: ["Strong brand portfolio (FanDuel, Paddy Power)", "International expansion potential", "Emerging market growth opportunities"],
                 headwinds: ["CEO departure amid guidance cuts", "FanDuel growth stalling in US market", "Margin compression from promotional wars"],
                 narrative: "Flutter's stock tumbled following CEO Peter Jackson's departure and disappointing Q2 results showing a $272M loss. FanDuel sportsbook volumes are contracting 15% as competitors intensify promotional spending. Leadership uncertainty compounds investor concerns about profitability recovery."
@@ -652,21 +711,22 @@
                     {
                         date: "28 Aug 2026",
                         title: "H1 2026 Earnings Beat Expectations",
-                        summary: "Revenue growth resilience despite UK gaming tax increases."
+                        summary: "Revenue growth resilience despite UK gaming tax increases.",
+                        url: "https://finance.yahoo.com/quote/EVOK.L/news"
                     },
                     {
                         date: "26 Aug 2026",
                         title: "Takeover Speculation Among Investors",
-                        summary: "Consolidation potential amid sector M&A wave drives buying interest."
+                        summary: "Consolidation potential amid sector M&A wave drives buying interest.",
+                        url: "https://finance.yahoo.com/quote/EVOK.L/news"
                     },
                     {
                         date: "20 Aug 2026",
                         title: "UK Gaming Tax Impact Assessment",
-                        summary: "Tax increases manageable; company implementing pricing adjustments."
+                        summary: "Tax increases manageable; company implementing pricing adjustments.",
+                        url: "https://finance.yahoo.com/quote/EVOK.L/news"
                     }
                 ],
-                analyst_rating: "BUY",
-                price_target: "62.50p",
                 tailwinds: ["Solid H1 earnings beat", "M&A consolidation tailwinds", "Tax adjustments pricing in"],
                 headwinds: ["UK gaming tax pressures", "Regulatory scrutiny on promotions", "Competition from larger operators"],
                 narrative: "Evoke showed resilience today with H1 earnings beating expectations, demonstrating the company can navigate UK tax headwinds. Takeover speculation adds to upside momentum as sector consolidation accelerates, positioning Evoke as a potential acquisition target for larger operators."
@@ -688,21 +748,22 @@
                     {
                         date: "26 Aug 2026",
                         title: "Going Concern Warning Issued",
-                        summary: "Liquidity concerns raised due to $4.5B debt load and operational challenges."
+                        summary: "Liquidity concerns raised due to $4.5B debt load and operational challenges.",
+                        url: "https://finance.yahoo.com/quote/BALY/news"
                     },
                     {
                         date: "25 Aug 2026",
                         title: "Chicago Casino Construction Halted",
-                        summary: "$1.7B project suspended amid disputes with city over video gambling terminals."
+                        summary: "$1.7B project suspended amid disputes with city over video gambling terminals.",
+                        url: "https://finance.yahoo.com/quote/BALY/news"
                     },
                     {
                         date: "20 Aug 2026",
                         title: "Q2 2026 Results Disappointing",
-                        summary: "Revenue decline; cash flow pressures mount amid rising debt service costs."
+                        summary: "Revenue decline; cash flow pressures mount amid rising debt service costs.",
+                        url: "https://finance.yahoo.com/quote/BALY/news"
                     }
                 ],
-                analyst_rating: "SELL",
-                price_target: "$6.50",
                 tailwinds: ["Asset base (20 casinos across US)", "Potential strategic buyer interest", "Land and real estate value"],
                 headwinds: ["Going concern warning", "Chicago casino construction halted", "$4.5B debt load limiting flexibility"],
                 narrative: "Bally's remains in distress following a going-concern warning and Chicago casino construction halt. With $4.5B in debt and liquidity challenges, the company faces significant uncertainty. Only strong M&A interest or strategic restructuring could stabilize the stock."
@@ -724,21 +785,22 @@
                     {
                         date: "28 Aug 2026",
                         title: "Analyst Upgrades Support Strong Buy Consensus",
-                        summary: "8 analysts rate stock Strong Buy with avg 12-month target of $18.88 (+34.86%)."
+                        summary: "8 analysts rate stock Strong Buy with avg 12-month target of $18.88 (+34.86%).",
+                        url: "https://finance.yahoo.com/quote/SGHC/news"
                     },
                     {
                         date: "25 Aug 2026",
                         title: "H1 2026 Solid Growth Trajectory",
-                        summary: "Betway brand momentum continues; operational leverage improving quarter-over-quarter."
+                        summary: "Betway brand momentum continues; operational leverage improving quarter-over-quarter.",
+                        url: "https://finance.yahoo.com/quote/SGHC/news"
                     },
                     {
                         date: "20 Aug 2026",
                         title: "International Expansion Updates",
-                        summary: "Betway entering new markets; Spin platform showing strong user retention."
+                        summary: "Betway entering new markets; Spin platform showing strong user retention.",
+                        url: "https://finance.yahoo.com/quote/SGHC/news"
                     }
                 ],
-                analyst_rating: "STRONG BUY",
-                price_target: "$18.88",
                 tailwinds: ["Strong analyst consensus (8 Strong Buys)", "Solid growth in H1 2026", "Betway brand momentum building"],
                 headwinds: ["Competitive pressure from larger operators", "Regulatory headwinds in key markets", "Operating expense leverage challenges"],
                 narrative: "Super Group maintains steady performance with strong analyst support. Eight analysts rate the stock Strong Buy with a 12-month target of $18.88, implying 34.86% upside. Solid H1 growth and Betway brand momentum support the bullish consensus as the company expands internationally."
@@ -760,21 +822,22 @@
                     {
                         date: "28 Aug 2026",
                         title: "H1 2026 Revenue Expectations Beaten",
-                        summary: "Strong performance across Ladbrokes, Coral, and Paddy Power brands."
+                        summary: "Strong performance across Ladbrokes, Coral, and Paddy Power brands.",
+                        url: "https://finance.yahoo.com/quote/ENT.L/news"
                     },
                     {
                         date: "27 Aug 2026",
                         title: "Central & Eastern Europe Exit Strategy Announced",
-                        summary: "Strategic divestiture to focus capital on core Western European and North American markets."
+                        summary: "Strategic divestiture to focus capital on core Western European and North American markets.",
+                        url: "https://finance.yahoo.com/quote/ENT.L/news"
                     },
                     {
                         date: "22 Aug 2026",
                         title: "World Cup Betting Lifts Q3 Guidance",
-                        summary: "Major sporting event driving elevated betting volumes and player acquisition."
+                        summary: "Major sporting event driving elevated betting volumes and player acquisition.",
+                        url: "https://finance.yahoo.com/quote/ENT.L/news"
                     }
                 ],
-                analyst_rating: "BUY",
-                price_target: "934.25p",
                 tailwinds: ["H1 revenue expectations beaten", "World Cup betting driving volumes", "Portfolio of strong brands (Ladbrokes, Coral)"],
                 headwinds: ["CEE region exit costs", "Regulatory pressures in Europe", "UK gaming tax headwinds"],
                 narrative: "Entain beat H1 revenue expectations and announced a strategic CEE region exit to focus on core markets. World Cup betting is driving elevated volumes, and the strong brand portfolio provides stability. The company is well-positioned despite regulatory headwinds."
@@ -816,6 +879,24 @@
             }, 800);
         }
 
+        function createSparkline(values, width = 120, height = 40) {
+            const minVal = Math.min(...values);
+            const maxVal = Math.max(...values);
+            const range = maxVal - minVal || 1;
+            const points = values.map((v, i) => {
+                const x = (i / (values.length - 1)) * width;
+                const y = height - ((v - minVal) / range) * height;
+                return `${x},${y}`;
+            }).join(' ');
+
+            const isPositive = values[values.length - 1] >= values[0];
+            const color = isPositive ? '#22c55e' : '#ef4444';
+
+            return `<svg class="trend-sparkline" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="${points}" fill="none" stroke="${color}" stroke-width="2" vector-effect="non-scaling-stroke"/>
+            </svg>`;
+        }
+
         function displayStockDashboard(ticker) {
             const stock = stocksData[ticker];
 
@@ -830,31 +911,78 @@
                     <div class="stock-price">
                         <div class="stock-price-value">$${stock.price.toFixed(2)}</div>
                         <div class="stock-price-change ${stock.change_pct >= 0 ? 'positive' : 'negative'}">
-                            ${stock.change_pct > 0 ? '+' : ''}${stock.change_pct.toFixed(2)}% (${stock.change_pct > 0 ? '+' : ''}${stock.change_abs.toFixed(2)})
-                        </div>
-                    </div>
-                </div>
-                <div class="stock-performance">
-                    <div class="performance-metric">
-                        <div class="performance-label">WOW</div>
-                        <div class="performance-value ${stock.wow >= 0 ? 'positive' : 'negative'}">
-                            ${stock.wow > 0 ? '+' : ''}${stock.wow.toFixed(2)}%
-                        </div>
-                    </div>
-                    <div class="performance-metric">
-                        <div class="performance-label">L4W</div>
-                        <div class="performance-value ${stock.l4w >= 0 ? 'positive' : 'negative'}">
-                            ${stock.l4w > 0 ? '+' : ''}${stock.l4w.toFixed(2)}%
-                        </div>
-                    </div>
-                    <div class="performance-metric">
-                        <div class="performance-label">L12W</div>
-                        <div class="performance-value ${stock.l12w >= 0 ? 'positive' : 'negative'}">
-                            ${stock.l12w > 0 ? '+' : ''}${stock.l12w.toFixed(2)}%
+                            ${stock.change_pct > 0 ? '+' : ''}${stock.change_pct.toFixed(2)}%
                         </div>
                     </div>
                 </div>
             `;
+
+            // Performance Grid with Sparklines
+            const performanceGrid = document.getElementById('performanceGrid');
+            performanceGrid.innerHTML = `
+                <div class="performance-metric">
+                    <div class="performance-label">WOW</div>
+                    <div class="performance-top">
+                        <div class="performance-value ${stock.wow >= 0 ? 'positive' : 'negative'}">
+                            ${stock.wow > 0 ? '+' : ''}${stock.wow.toFixed(2)}%
+                        </div>
+                        ${createSparkline([stock.wow - 2, stock.wow - 1, stock.wow])}
+                    </div>
+                </div>
+                <div class="performance-metric">
+                    <div class="performance-label">L4W</div>
+                    <div class="performance-top">
+                        <div class="performance-value ${stock.l4w >= 0 ? 'positive' : 'negative'}">
+                            ${stock.l4w > 0 ? '+' : ''}${stock.l4w.toFixed(2)}%
+                        </div>
+                        ${createSparkline([stock.l4w - 5, stock.l4w - 2, stock.l4w])}
+                    </div>
+                </div>
+                <div class="performance-metric">
+                    <div class="performance-label">L12W</div>
+                    <div class="performance-top">
+                        <div class="performance-value ${stock.l12w >= 0 ? 'positive' : 'negative'}">
+                            ${stock.l12w > 0 ? '+' : ''}${stock.l12w.toFixed(2)}%
+                        </div>
+                        ${createSparkline([stock.l12w - 20, stock.l12w - 10, stock.l12w])}
+                    </div>
+                </div>
+            `;
+
+            // Narrative
+            const narrativeSection = document.getElementById('narrativeSection');
+            narrativeSection.innerHTML = `
+                <div class="narrative-title">Performance Narrative</div>
+                <div class="narrative-text">${stock.narrative}</div>
+            `;
+
+            // Analysis
+            const analysisGrid = document.getElementById('analysisGrid');
+            analysisGrid.innerHTML = `
+                <div class="analysis-block">
+                    <h3>Tailwinds ✈️</h3>
+                    <ul>
+                        ${stock.tailwinds.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="analysis-block">
+                    <h3>Headwinds ⛈️</h3>
+                    <ul>
+                        ${stock.headwinds.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+
+            // News with Links
+            const newsList = document.getElementById('newsList');
+            newsList.innerHTML = stock.news.map(item => `
+                <div class="news-item">
+                    <div class="news-date">${item.date}</div>
+                    <div class="news-title">${item.title}</div>
+                    <div class="news-summary">${item.summary}</div>
+                    <a href="${item.url}" target="_blank" class="news-link">Read More →</a>
+                </div>
+            `).join('');
 
             // Key Metrics
             const metricsGrid = document.getElementById('metricsGrid');
@@ -875,40 +1003,6 @@
                     <div class="metric-item-label">52W Low</div>
                     <div class="metric-item-value">${stock.week_52_low}</div>
                 </div>
-            `;
-
-            // News
-            const newsList = document.getElementById('newsList');
-            newsList.innerHTML = stock.news.map(item => `
-                <div class="news-item">
-                    <div class="news-date">${item.date}</div>
-                    <div class="news-title">${item.title}</div>
-                    <div class="news-summary">${item.summary}</div>
-                </div>
-            `).join('');
-
-            // Analysis
-            const analysisGrid = document.getElementById('analysisGrid');
-            analysisGrid.innerHTML = `
-                <div class="analysis-block">
-                    <h3>Tailwinds ✈️</h3>
-                    <ul>
-                        ${stock.tailwinds.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-                <div class="analysis-block">
-                    <h3>Headwinds ⛈️</h3>
-                    <ul>
-                        ${stock.headwinds.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-
-            // Narrative
-            const narrativeSection = document.getElementById('narrativeSection');
-            narrativeSection.innerHTML = `
-                <div class="narrative-title">Performance Narrative</div>
-                <div class="narrative-text">${stock.narrative}</div>
             `;
         }
 
